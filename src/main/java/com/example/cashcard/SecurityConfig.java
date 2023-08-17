@@ -37,8 +37,13 @@ public class SecurityConfig {
                 .password(passwordEncoder.encode("qrs456"))
                 .roles("NON-OWNER")
                 .build();
+        UserDetails kumar2 = users
+                .username("kumar2")
+                .password(passwordEncoder.encode("xyz789"))
+                .roles("CARD-OWNER")
+                .build();
 
-        return new InMemoryUserDetailsManager(kumar, sankarNonOwner);
+        return new InMemoryUserDetailsManager(kumar, sankarNonOwner, kumar2);
     }
 
     @Bean
